@@ -5,36 +5,46 @@ import { User } from "lucide-react";
 
 const dishes = [
   {
-    name: "Jollof Rice Special",
-    vendor: "Mama Kemi's Kitchen",
+    name: "Jollof Rice & Chicken",
+    vendor: "Chef's Code Kitchen",
     price: "₦2,500",
     rating: "4.9",
     image: "🍚",
-    description: "Perfectly spiced jollof rice with chicken and plantain"
+    description: "Perfectly spiced jollof rice served with tender chicken"
   },
   {
-    name: "Amala & Ewedu",
-    vendor: "Buka Express",
-    price: "₦1,800",
+    name: "Spaghetti & Chicken",
+    vendor: "Chef's Code Kitchen",
+    price: "₦2,500",
     rating: "4.8",
-    image: "🍲",
-    description: "Traditional amala served with fresh ewedu and assorted meat"
+    image: "🍝",
+    description: "Delicious spaghetti pasta with well-seasoned chicken"
   },
   {
-    name: "Chicken Shawarma",
-    vendor: "Campus Grill",
-    price: "₦1,200",
+    name: "Noodles & Fried/Boiled Eggs",
+    vendor: "Chef's Code Kitchen",
+    price: "₦1,700",
     rating: "4.7",
-    image: "🌯",
-    description: "Grilled chicken wrapped with fresh vegetables and sauce"
+    image: "🍜",
+    description: "Tasty noodles served with your choice of fried or boiled eggs"
+  }
+];
+
+const addOns = [
+  {
+    name: "Extra Chicken",
+    price: "₦1,300",
+    image: "🍗"
   },
   {
-    name: "Fried Rice Combo",
-    vendor: "Tasty Bites",
-    price: "₦2,000",
-    rating: "4.6",
-    image: "🍛",
-    description: "Colorful fried rice with chicken, beef, and vegetables"
+    name: "Sausage",
+    price: "₦400",
+    image: "🌭"
+  },
+  {
+    name: "Boiled Egg",
+    price: "₦300",
+    image: "🥚"
   }
 ];
 
@@ -44,57 +54,101 @@ const PopularDishes = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Student Favorites
+            Chef's Code Menu
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            The most loved dishes by Osun State University students
+            Delicious meals delivered right to your doorstep at Osun State University
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {dishes.map((dish, index) => (
-            <Card key={dish.name} className="bg-white hover:shadow-xl transition-all duration-300 hover:scale-105 group overflow-hidden">
-              <CardContent className="p-0">
-                {/* Image placeholder */}
-                <div className="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
-                  {dish.image}
-                </div>
-                
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-lg text-gray-800 group-hover:text-primary transition-colors">
-                      {dish.name}
-                    </h3>
-                    <span className="text-lg font-bold text-primary">
-                      {dish.price}
-                    </span>
+        {/* Main Courses */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Main Courses</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {dishes.map((dish, index) => (
+              <Card key={dish.name} className="bg-white hover:shadow-xl transition-all duration-300 hover:scale-105 group overflow-hidden">
+                <CardContent className="p-0">
+                  {/* Image placeholder */}
+                  <div className="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
+                    {dish.image}
                   </div>
                   
-                  <div className="flex items-center gap-2 mb-3">
-                    <User className="w-4 h-4 text-gray-500" />
-                    <span className="text-sm text-gray-600">{dish.vendor}</span>
-                    <span className="ml-auto text-sm font-semibold text-yellow-600">
-                      ⭐ {dish.rating}
-                    </span>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-bold text-lg text-gray-800 group-hover:text-primary transition-colors">
+                        {dish.name}
+                      </h3>
+                      <span className="text-lg font-bold text-primary">
+                        {dish.price}
+                      </span>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 mb-3">
+                      <User className="w-4 h-4 text-gray-500" />
+                      <span className="text-sm text-gray-600">{dish.vendor}</span>
+                      <span className="ml-auto text-sm font-semibold text-yellow-600">
+                        ⭐ {dish.rating}
+                      </span>
+                    </div>
+                    
+                    <p className="text-sm text-gray-600 mb-4">
+                      {dish.description}
+                    </p>
+                    
+                    <Button className="w-full food-gradient text-white hover:shadow-lg transition-all duration-200">
+                      Order Now
+                    </Button>
                   </div>
-                  
-                  <p className="text-sm text-gray-600 mb-4">
-                    {dish.description}
-                  </p>
-                  
-                  <Button className="w-full food-gradient text-white hover:shadow-lg transition-all duration-200">
-                    Add to Cart
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" className="px-8 py-3 text-lg border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200">
-            View All Dishes
-          </Button>
+        {/* Add-Ons */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Add-Ons</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {addOns.map((addOn, index) => (
+              <Card key={addOn.name} className="bg-white hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                <CardContent className="p-4 text-center">
+                  <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-200">
+                    {addOn.image}
+                  </div>
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    {addOn.name}
+                  </h4>
+                  <span className="text-lg font-bold text-primary">
+                    {addOn.price}
+                  </span>
+                  <Button size="sm" className="w-full mt-3 food-gradient text-white">
+                    Add to Order
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+            Ready to Order? 🍴👨‍🍳
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Select your preferred dish and add-ons, and we'll deliver to your doorstep!
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+            <Button className="food-gradient text-white hover:shadow-lg">
+              Place an Order
+            </Button>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+              Customize Meal
+            </Button>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+              View Menu Details
+            </Button>
+          </div>
         </div>
       </div>
     </div>
