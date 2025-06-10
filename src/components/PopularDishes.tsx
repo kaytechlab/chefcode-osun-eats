@@ -9,7 +9,7 @@ const dishes = [
     vendor: "Chef's Code Kitchen",
     price: "₦2,500",
     rating: "4.9",
-    image: "🍚",
+    image: "/lovable-uploads/cb654a33-64dd-4a87-acf1-6ac3d5d09ef2.png",
     description: "Perfectly spiced jollof rice served with tender chicken"
   },
   {
@@ -17,7 +17,7 @@ const dishes = [
     vendor: "Chef's Code Kitchen",
     price: "₦2,500",
     rating: "4.8",
-    image: "🍝",
+    image: "/lovable-uploads/1a462596-2b18-4373-99f8-5517ec9f8e65.png",
     description: "Delicious spaghetti pasta with well-seasoned chicken"
   },
   {
@@ -25,7 +25,7 @@ const dishes = [
     vendor: "Chef's Code Kitchen",
     price: "₦1,700",
     rating: "4.7",
-    image: "🍜",
+    image: "/lovable-uploads/d310186e-493e-43f4-a75b-51cf03143e42.png",
     description: "Tasty noodles served with your choice of fried or boiled eggs"
   }
 ];
@@ -68,9 +68,13 @@ const PopularDishes = () => {
             {dishes.map((dish, index) => (
               <Card key={dish.name} className="bg-white hover:shadow-xl transition-all duration-300 hover:scale-105 group overflow-hidden">
                 <CardContent className="p-0">
-                  {/* Image placeholder */}
-                  <div className="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
-                    {dish.image}
+                  {/* Real food image */}
+                  <div className="h-48 overflow-hidden">
+                    <img 
+                      src={dish.image} 
+                      alt={dish.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                   
                   <div className="p-6">
