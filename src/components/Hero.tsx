@@ -14,9 +14,13 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Logo/Brand */}
           <div className="mb-8">
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-800 mb-4">
-              Chef's <span className="text-primary">Code</span>
-            </h1>
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/lovable-uploads/1d688341-c7da-4a94-8de1-1e7c7c91147a.png" 
+                alt="Chef's Code Logo" 
+                className="w-48 h-48 md:w-64 md:h-64 object-contain"
+              />
+            </div>
             <div className="flex items-center justify-center gap-2 text-lg text-gray-600 mb-2">
               <MapPin className="w-5 h-5" />
               <span>Osun State University</span>
